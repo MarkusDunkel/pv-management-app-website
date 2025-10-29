@@ -1,0 +1,10 @@
+<svg width="320" height="180" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Trend analytics dashboard</title>
+  <desc id="desc">Rolling trend lines highlighting performance drift.</desc>
+  <rect width="320" height="180" rx="20" fill="#0F172A" />
+  <rect x="24" y="26" width="272" height="128" rx="18" fill="#111C30" stroke="#1F2937" stroke-width="2" />
+  <path d="M48 126L88 98L128 102L168 72L208 86L248 60L288 74" stroke="#22D3EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M48 110L88 82L128 90L168 58L208 70L248 48L288 56" stroke="#F97316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+  <rect x="48" y="52" width="48" height="16" rx="8" fill="#1E293B" />
+  <rect x="108" y="52" width="48" height="16" rx="8" fill="#1E293B" />
+</svg>

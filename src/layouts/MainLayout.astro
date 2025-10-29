@@ -1,0 +1,48 @@
+---
+import '@/styles/global.css';
+import MobileTopbar from '@/components/navigation/MobileTopbar';
+import Sidebar from '@/components/navigation/Sidebar.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Photovoltaik Surveillance and Analytics',
+  description = 'Responsive single-page overview for a photovoltaic monitoring and analytics platform.'
+} = Astro.props as Props;
+---
+<!DOCTYPE html>
+<html lang="en" class="h-full" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      const STORAGE_KEY = 'pv-theme';
+      const root = document.documentElement;
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (systemPrefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          root.classList.add('dark');
+        }
+      } catch (error) {
+        console.warn('Unable to read theme preference', error);
+      }
+    </script>
+  </head>
+  <body class="min-h-screen bg-background text-foreground">
+    <MobileTopbar client:load />
+    <div class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-20 lg:flex-row lg:gap-12 lg:px-8">
+      <Sidebar />
+      <main class="flex-1 space-y-24 pt-6 lg:pt-16">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

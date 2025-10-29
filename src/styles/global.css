@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 14% 97%;
+  --foreground: 222 47% 11%;
+  --muted: 220 14% 92%;
+  --muted-foreground: 222 10% 40%;
+  --accent: 22 90% 55%;
+  --accent-foreground: 0 0% 100%;
+  --border: 218 15% 83%;
+  --input: 218 15% 83%;
+  --ring: 22 90% 55%;
+}
+
+.dark {
+  --background: 222 47% 8%;
+  --foreground: 220 20% 96%;
+  --muted: 222 31% 15%;
+  --muted-foreground: 216 20% 72%;
+  --accent: 22 90% 60%;
+  --accent-foreground: 222 47% 8%;
+  --border: 220 23% 20%;
+  --input: 220 23% 20%;
+  --ring: 22 90% 60%;
+}
+
+body {
+  @apply bg-background text-foreground min-h-screen antialiased;
+}
+
+a {
+  @apply text-foreground transition-colors duration-200;
+}
+
+a:hover {
+  @apply text-accent;
+}
+
+.focus-ring {
+  @apply outline-none ring-2 ring-offset-2 ring-offset-background ring-ring;
+}
+
+::selection {
+  @apply bg-accent text-accent-foreground;
+}
+
+img {
+  @apply rounded-lg shadow-card shadow-black/10;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}

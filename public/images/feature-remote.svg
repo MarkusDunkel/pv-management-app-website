@@ -1,0 +1,18 @@
+<svg width="320" height="180" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Remote monitoring console</title>
+  <desc id="desc">Technician runs diagnostics remotely.</desc>
+  <rect width="320" height="180" rx="20" fill="#0F172A" />
+  <g transform="translate(28 28)">
+    <rect x="0" y="0" width="180" height="124" rx="16" fill="#111C30" stroke="#1E293B" stroke-width="2" />
+    <rect x="20" y="24" width="140" height="16" rx="8" fill="#1E293B" />
+    <rect x="20" y="52" width="120" height="12" rx="6" fill="#1E40AF" />
+    <rect x="20" y="72" width="120" height="12" rx="6" fill="#0EA5E9" />
+    <rect x="20" y="92" width="88" height="12" rx="6" fill="#F97316" />
+  </g>
+  <g transform="translate(220 44)">
+    <circle cx="40" cy="40" r="40" fill="#1E293B" />
+    <path d="M26 58L30 38C33 28 36 24 44 24H50C58 24 61 28 64 38L68 58" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round" />
+    <circle cx="40" cy="30" r="12" fill="#F8FAFC" />
+  </g>
+  <path d="M206 72C206 72 198 60 188 60" stroke="#22D3EE" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10" />
+</svg>

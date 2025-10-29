@@ -1,0 +1,23 @@
+<svg width="320" height="180" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Anomaly detection heatmap</title>
+  <desc id="desc">Heatmap showing anomaly hot spots across solar strings.</desc>
+  <rect width="320" height="180" rx="20" fill="#0F172A" />
+  <g transform="translate(40 36)">
+    <rect x="0" y="0" width="240" height="108" rx="14" fill="#111C30" stroke="#1E293B" stroke-width="2" />
+    <g transform="translate(16 16)" stroke-width="0">
+      <rect width="48" height="24" rx="5" fill="#1E3A8A" />
+      <rect x="56" width="48" height="24" rx="5" fill="#2563EB" />
+      <rect x="112" width="48" height="24" rx="5" fill="#38BDF8" />
+      <rect x="168" width="48" height="24" rx="5" fill="#0EA5E9" />
+      <rect y="32" width="48" height="24" rx="5" fill="#2563EB" />
+      <rect x="56" y="32" width="48" height="24" rx="5" fill="#38BDF8" />
+      <rect x="112" y="32" width="48" height="24" rx="5" fill="#22D3EE" />
+      <rect x="168" y="32" width="48" height="24" rx="5" fill="#F97316" />
+      <rect y="64" width="48" height="24" rx="5" fill="#38BDF8" />
+      <rect x="56" y="64" width="48" height="24" rx="5" fill="#22D3EE" />
+      <rect x="112" y="64" width="48" height="24" rx="5" fill="#F59E0B" />
+      <rect x="168" y="64" width="48" height="24" rx="5" fill="#EF4444" />
+    </g>
+  </g>
+  <circle cx="252" cy="40" r="10" fill="#EF4444" stroke="#F8FAFC" stroke-width="3" />
+</svg>
