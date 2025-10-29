@@ -1,12 +1,14 @@
+import type { NavKey } from '@/lib/translations';
+
 export interface NavItem {
   href: string;
-  label: string;
+  key: NavKey;
 }
 
 export const navItems: NavItem[] = [
-  { href: '#about', label: 'About' },
-  { href: '#features', label: 'Features' },
-  { href: '#infrastructure', label: 'Infrastructure' },
-  { href: '#challenges', label: 'Key Challenges' },
-  { href: '#developer', label: 'About the Developer' }
+  { href: '#about', key: 'about' },
+  { href: '#features', key: 'features' },
+  { href: '#infrastructure', key: 'infrastructure' },
+  { href: '#challenges', key: 'challenges' },
+  { href: '#developer', key: 'developer' }
 ];

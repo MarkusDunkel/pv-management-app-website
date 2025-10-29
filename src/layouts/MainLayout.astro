@@ -1,7 +1,5 @@
 ---
 import '@/styles/global.css';
-import MobileTopbar from '@/components/navigation/MobileTopbar';
-import Sidebar from '@/components/navigation/Sidebar.astro';
 
 interface Props {
   title?: string;
@@ -37,12 +35,6 @@ const {
     </script>
   </head>
   <body class="min-h-screen bg-background text-foreground">
-    <MobileTopbar client:load />
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-20 lg:flex-row lg:gap-12 lg:px-8">
-      <Sidebar />
-      <main class="flex-1 space-y-24 pt-6 lg:pt-16">
-        <slot />
-      </main>
-    </div>
+    <slot />
   </body>
 </html>
