@@ -51,7 +51,7 @@ export default function MobileTopbar() {
             size="icon"
             aria-expanded={open}
             aria-controls="mobile-nav"
-            aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={open ? t.layout.closeMenuLabel : t.layout.openMenuLabel}
             onClick={() => setOpen((prev) => !prev)}
           >
             {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
@@ -65,6 +65,7 @@ export default function MobileTopbar() {
           id="mobile-nav"
           className="mt-3 flex flex-col gap-2 rounded-lg border border-border bg-background/95 p-4 shadow-card"
           role="menu"
+          aria-label={t.layout.primaryNavLabel}
         >
           {navItems.map((item) => (
             <a

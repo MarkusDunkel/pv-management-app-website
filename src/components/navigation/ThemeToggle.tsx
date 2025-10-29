@@ -4,6 +4,7 @@ import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
+import { useTranslations } from '@/hooks/useTranslations';
 
 const STORAGE_KEY = 'pv-theme';
 
@@ -36,6 +37,7 @@ function applyTheme(theme: Theme) {
 
 export default function ThemeToggle({ className }: { className?: string }) {
   const [theme, setTheme] = useState<Theme>(() => getPreferredTheme());
+  const t = useTranslations();
 
   useEffect(() => {
     applyTheme(theme);
@@ -57,7 +59,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
     <button
       type="button"
       onClick={toggle}
-      aria-label="Toggle color mode"
+      aria-label={t.layout.themeToggleAria}
       className={cn(
         'flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-foreground transition-colors hover:bg-muted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         className

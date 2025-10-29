@@ -17,7 +17,7 @@ export default function Sidebar() {
           <p className="text-sm text-muted-foreground">{t.layout.sidebarIntro}</p>
         </div>
 
-        <nav aria-label="Primary" className="flex-1 space-y-3">
+        <nav aria-label={t.layout.primaryNavLabel} className="flex-1 space-y-3">
           {navItems.map((item) => (
             <a
               key={item.key}

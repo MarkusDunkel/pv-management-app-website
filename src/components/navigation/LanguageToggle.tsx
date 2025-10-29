@@ -1,20 +1,22 @@
 'use client';
 
 import { useLanguage } from '@/context/LanguageContext';
+import { useTranslations } from '@/hooks/useTranslations';
 
 const OPTIONS = [
-  { value: 'en', label: 'EN', title: 'Switch to English' },
-  { value: 'de', label: 'DE', title: 'Auf Deutsch wechseln' }
-] as const;
+  { value: 'en' as const, label: 'EN', title: 'English' },
+  { value: 'de' as const, label: 'DE', title: 'Deutsch' }
+];
 
 export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
+  const t = useTranslations();
 
   return (
     <div
       className="inline-flex items-center gap-1 rounded-full border border-border bg-muted/70 p-1 text-xs font-semibold"
       role="group"
-      aria-label="Language selection"
+      aria-label={t.layout.languageToggleAria}
     >
       {OPTIONS.map((option) => {
         const active = language === option.value;

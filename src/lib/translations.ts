@@ -38,6 +38,11 @@ interface LayoutCopy {
   themeLabel: string;
   languageLabel: string;
   mobileSubtitle: string;
+  openMenuLabel: string;
+  closeMenuLabel: string;
+  languageToggleAria: string;
+  themeToggleAria: string;
+  primaryNavLabel: string;
 }
 
 export interface TranslationShape {
@@ -83,7 +88,12 @@ export const translations: Record<Language, TranslationShape> = {
       sidebarIntro: 'Navigate through the platform overview, architecture, and development insights.',
       themeLabel: 'Theme',
       languageLabel: 'Language',
-      mobileSubtitle: 'Photovoltaik Surveillance & Analytics'
+      mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
+      openMenuLabel: 'Open navigation menu',
+      closeMenuLabel: 'Close navigation menu',
+      languageToggleAria: 'Select language',
+      themeToggleAria: 'Toggle color mode',
+      primaryNavLabel: 'Primary navigation'
     },
     hero: {
       eyebrow: 'About',
@@ -207,7 +217,12 @@ export const translations: Record<Language, TranslationShape> = {
       sidebarIntro: 'Erkunden Sie Überblick, Architektur und Einblicke in die Entwicklung der Plattform.',
       themeLabel: 'Darstellung',
       languageLabel: 'Sprache',
-      mobileSubtitle: 'Photovoltaik Surveillance & Analytics'
+      mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
+      openMenuLabel: 'Navigationsmenü öffnen',
+      closeMenuLabel: 'Navigationsmenü schließen',
+      languageToggleAria: 'Sprache auswählen',
+      themeToggleAria: 'Darstellung umschalten',
+      primaryNavLabel: 'Hauptnavigation'
     },
     hero: {
       eyebrow: 'Überblick',
