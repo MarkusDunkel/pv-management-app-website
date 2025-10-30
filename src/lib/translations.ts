@@ -99,7 +99,7 @@ export const translations: Record<Language, TranslationShape> = {
           title: 'Real-time Visualisation',
           description:
             'Dashboards visualise module values in real time, allowing you to adjust your energy consumption intelligently.',
-          image: '/images/current-state.png',
+          image: '/images/hero-solar-array.svg',
           alt: 'Line chart with the performance history of solar modules.'
         },
         {
@@ -189,7 +189,7 @@ export const translations: Record<Language, TranslationShape> = {
           title: 'Echtzeit-Visualisierung',
           description:
             'Dashboards visualisieren Modulwerte in Echtzeit, sodass Sie Ihren Stromverbrauch intelligent anpassen können.',
-          image: '/images/current-state.png',
+          image: '/images/hero-solar-array.svg',
           alt: 'Liniendiagramm mit Leistungsverlauf der Solarmodule.'
         },
         {
