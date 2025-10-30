@@ -2,11 +2,6 @@ export type Language = 'en' | 'de';
 
 export type NavKey = 'about' | 'features' | 'infrastructure' | 'challenges' | 'developer';
 
-interface Metric {
-  label: string;
-  value: string;
-}
-
 interface FeatureCard {
   title: string;
   description: string;
@@ -45,9 +40,6 @@ export interface TranslationShape {
   hero: SectionCopy & {
     ctas: { primary: string; secondary: string };
     body: string;
-    metrics: Metric[];
-    imageAlt: string;
-    caption: string;
   };
   features: SectionCopy & {
     cards: FeatureCard[];
@@ -68,15 +60,15 @@ export interface TranslationShape {
 export const translations: Record<Language, TranslationShape> = {
   en: {
     nav: {
-      about: 'About',
+      about: 'Overview',
       features: 'Features',
       infrastructure: 'Infrastructure',
       challenges: 'Key Challenges',
-      developer: 'About the Developer'
+      developer: 'About Me'
     },
     layout: {
       productLabel: 'PV Platform',
-      sidebarIntro: 'Navigate through the platform overview, architecture, and development insights.',
+      sidebarIntro: "Overview, architecture, and insights into the platform's development.",
       themeLabel: 'Theme',
       languageLabel: 'Language',
       mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
@@ -87,83 +79,71 @@ export const translations: Record<Language, TranslationShape> = {
       primaryNavLabel: 'Primary navigation'
     },
     hero: {
-      eyebrow: 'About',
-      title: 'Photovoltaik Surveillance and Analytics',
+      eyebrow: 'Overview',
+      title: 'HomeWatts – Photovoltaic Monitoring and Analytics',
       description:
-        'Operational intelligence for distributed solar fleets—surface insights, visualise health, and automate remediation from a single control surface.',
+        'Smart energy analytics for your home: monitor, understand and optimise your photovoltaic system with battery storage.',
       body:
-        'Harness an observability layer purpose-built for photovoltaic assets. Spotlight underperforming strings, triage inverter faults instantly, and benchmark output against irradiance forecasts—all without stitching spreadsheets together.',
+        'This platform, built specifically for photovoltaics, makes your energy data transparent: monitor performance and efficiency in real time, detect faults instantly, and uncover new opportunities for optimisation and investment.',
       ctas: {
         primary: 'Try the Demo',
-        secondary: 'Explore Architecture'
+        secondary: 'View on GitHub'
       },
-      metrics: [
-        { label: 'Arrays Observed', value: '12,500+' },
-        { label: 'Alert Latency', value: '< 30s' },
-        { label: 'Energy Managed', value: '4.2 GWp' }
-      ],
-      imageAlt: 'Aerial illustration of solar arrays sending data to an analytics dashboard.',
-      caption: 'Illustrative overview tying live production data to actionable insights.'
     },
     features: {
       eyebrow: 'Features',
       title: 'Platform Features',
-      description: 'Everything operations teams need to sense, analyse, and respond to solar performance in one view.',
+      description: 'Capture. Analyse. Act. Everything PV owners need to get the most from their solar system.',
       cards: [
         {
           title: 'Real-time Visualisation',
           description:
-            'Streaming dashboards render module-level performance in sub-second intervals so operators can intervene before yield drops.',
+            'Dashboards visualise module values in real time, allowing you to adjust your energy consumption intelligently.',
           image: '/images/current-state.png',
-          alt: 'Line chart showing solar panel output trends.'
+          alt: 'Line chart with the performance history of solar modules.'
         },
         {
-          title: 'Anomaly Detection',
+          title: 'Remote Monitoring',
           description:
-            'ML-assisted baselines flag inverter faults, shading, and sudden voltage sag using adaptive thresholds tuned to each array.',
+            'Stay informed on the go and detect faults in real time.',
           image: '/images/feature-anomaly.svg',
-          alt: 'Heatmap view highlighting an anomalous solar string.'
+          alt: 'Heatmap view with an anomalous solar string highlighted.'
         },
         {
-          title: 'Analytics and Optimization',
+          title: 'Analysis and Optimisation',
           description:
-            'Secure remote commands trigger diagnostics, calibrations, and firmware checks across distributed sites without truck rolls.',
+            'Our analytics platform provides precise recommendations so you can plan investments in a targeted, effective way.',
           image: '/images/feature-visualization.svg',
-          alt: 'Engineer triggering a remote diagnostic routine.'
-        },
-        {
-          title: 'Trend Analytics',
-          description:
-            'Rolling 30-day regressions surface performance drift and panel degradation to feed maintenance planning.',
-          image: '/images/trend.png',
-          alt: 'Gaussian curve showing variance bands for photovoltaic output.'
+          alt: 'Engineer initiating a remote diagnostic.'
         }
       ]
     },
     infrastructure: {
       eyebrow: 'Infrastructure',
       title: 'Infrastructure',
-      description: 'A cloud-native control plane ingests telemetry, orchestrates analytics, and serves insights globally.',
+      description:
+        'A cloud-native control centre captures telemetry, orchestrates analytics, and delivers insights in real time.',
       paragraphs: [
-        'Resilient edge collectors publish granular telemetry into regional ingestion clusters. A Kafka backbone replicates events into BigQuery for historical analysis while a Flink jobs layer powers live dashboards. Role-based APIs expose actions back to field teams through secure web and mobile clients.',
-        'Automated deploys on Google Cloud ensure consistent rollouts. GitOps pipelines verify infrastructure diagrams, schema migrations, and golden dashboards before shipping to production.'
+        'User requests are sent from the React single-page app to the backend API over HTTPS. The backend supplies UI state, authenticates users, and reads or writes operational data via PostgreSQL.',
+        'In parallel, a collector worker runs on its own Spring profile: it is triggered on a schedule, authenticates with the SEMS portal, fetches current performance and asset data, and stores it in the same backend schema.',
+        'These updates make the latest telemetry and synchronisation status immediately available for subsequent frontend calls.'
       ],
       githubLabel: 'View on GitHub',
       imageAlt: 'Diagram showing collectors, streaming pipeline, analytics layer, and operator console.',
-      imageCaption: 'Telemetry flows through resilient pipelines and lands in a scalable analytics fabric.'
+      imageCaption: 'Architecture overview / system overview'
     },
     developer: {
-      eyebrow: 'Team',
-      title: 'About the Developer',
-      description: 'Crafted by a systems engineer focused on reliable renewables and intuitive operator tooling.',
+      eyebrow: 'Profile',
+      title: 'About Me',
+      description: 'Passion for data-driven process automation.',
       paragraphs: [
-        'Hey, I am Alex—a renewable tech specialist who pairs electrical engineering roots with cloud-native data stacks. I design control rooms that keep field teams confident, operators informed, and sustainability goals on track.',
-        'Recent projects span inverter fleet analytics, DER forecasting, and XR training overlays for rooftop crews. I love translating messy telemetry into decisive, human-friendly experiences.'
+        "Hi, I'm Markus—a software engineer with a keen interest in digitising business processes. I love translating complex business logic into clean, maintainable, and user-centred software.",
+        "I see the interplay between data structure, business logic, and user experience as the key to sustainable digital transformation, and I want to help shape that progress. I combine analytical skills from studying climate physics with the systems thinking of an IT specialist."
       ],
       links: [
-        { href: 'https://github.com/example', label: 'GitHub', aria: 'Visit developer GitHub profile' },
-        { href: 'https://www.linkedin.com/in/example', label: 'LinkedIn', aria: 'Visit developer LinkedIn profile' },
-        { href: 'mailto:developer@example.com', label: 'Email', aria: 'Email the developer' }
+        { href: 'https://github.com/example', label: 'GitHub', aria: "Open the developer's GitHub profile" },
+        { href: 'https://www.linkedin.com/in/example', label: 'LinkedIn', aria: "Open the developer's LinkedIn profile" },
+        { href: 'mailto:developer@example.com', label: 'Email', aria: 'Send an email to the developer' }
       ],
       avatarAlt: 'Illustrated portrait of the developer.'
     }
@@ -199,13 +179,6 @@ export const translations: Record<Language, TranslationShape> = {
         primary: 'Demo starten',
         secondary: 'Auf Github ansehen'
       },
-      metrics: [
-        { label: 'Überwachte Arrays', value: '12.500+' },
-        { label: 'Alarm-Latenz', value: '< 30 s' },
-        { label: 'Verwaltete Leistung', value: '4,2 GWp' }
-      ],
-      imageAlt: 'Illustration einer Solarfeld-Landschaft mit angebundenem Analytics-Dashboard.',
-      caption: 'Visualisierung der Datenströme von der Anlage bis zu den betrieblichen Insights.'
     },
     features: {
       eyebrow: 'Funktionen',
