@@ -14,12 +14,6 @@ interface FeatureCard {
   alt: string;
 }
 
-interface ChallengeItem {
-  title: string;
-  description: string;
-  detail: string;
-}
-
 interface DeveloperLink {
   href: string;
   label: string;
@@ -63,9 +57,6 @@ export interface TranslationShape {
     githubLabel: string;
     imageAlt: string;
     imageCaption: string;
-  };
-  challenges: SectionCopy & {
-    items: ChallengeItem[];
   };
   developer: SectionCopy & {
     paragraphs: string[];
@@ -123,7 +114,7 @@ export const translations: Record<Language, TranslationShape> = {
           title: 'Real-time Visualisation',
           description:
             'Streaming dashboards render module-level performance in sub-second intervals so operators can intervene before yield drops.',
-          image: '/images/feature-visualization.svg',
+          image: '/images/current-state.png',
           alt: 'Line chart showing solar panel output trends.'
         },
         {
@@ -134,18 +125,18 @@ export const translations: Record<Language, TranslationShape> = {
           alt: 'Heatmap view highlighting an anomalous solar string.'
         },
         {
-          title: 'Remote Monitoring',
+          title: 'Analytics and Optimization',
           description:
             'Secure remote commands trigger diagnostics, calibrations, and firmware checks across distributed sites without truck rolls.',
-          image: '/images/feature-remote.svg',
+          image: '/images/feature-visualization.svg',
           alt: 'Engineer triggering a remote diagnostic routine.'
         },
         {
           title: 'Trend Analytics',
           description:
             'Rolling 30-day regressions surface performance drift and panel degradation to feed maintenance planning.',
-          image: '/images/feature-trend.svg',
-          alt: 'Dashboard presenting comparative production trends.'
+          image: '/images/trend.png',
+          alt: 'Gaussian curve showing variance bands for photovoltaic output.'
         }
       ]
     },
@@ -160,33 +151,6 @@ export const translations: Record<Language, TranslationShape> = {
       githubLabel: 'View on GitHub',
       imageAlt: 'Diagram showing collectors, streaming pipeline, analytics layer, and operator console.',
       imageCaption: 'Telemetry flows through resilient pipelines and lands in a scalable analytics fabric.'
-    },
-    challenges: {
-      eyebrow: 'Key Challenges',
-      title: 'Key Challenges',
-      description: 'Hard-won lessons from scaling a data-intensive solar monitoring platform.',
-      items: [
-        {
-          title: 'Unifying Heterogeneous Telemetry',
-          description:
-            'Vendors expose metrics via Modbus, proprietary TCP payloads, and REST bridges. We normalise payloads into a shared time-series schema and reconcile missing datapoints with Kalman smoothing to keep dashboards coherent.',
-          detail:
-            'Edge collectors publish raw frames to a Kafka topic; a wasm-based parser hydrates them into structured JSON across 12 protocols.'
-        },
-        {
-          title: 'Scaling Geospatial Queries',
-          description:
-            'Operators filter by irradiance, asset health, and location in milliseconds even with thousands of rooftops. We tile data using H3 indexes, shard queries per region, and cache map overlays in Cloud Storage.',
-          detail: 'Daily pre-computed tiles keep interactive latency under 250ms for 95th percentile requests.'
-        },
-        {
-          title: 'Guarding Against False Positives',
-          description:
-            'Anomaly bursts can overwhelm teams. We calibrate detectors with seasonal baselines and apply quorum logic before paging, reducing noisy alerts by 63% without hiding real failures.',
-          detail:
-            'Alert policies blend statistical confidence and time-in-state windows to prioritise critical outages.'
-        }
-      ]
     },
     developer: {
       eyebrow: 'Team',
@@ -210,11 +174,11 @@ export const translations: Record<Language, TranslationShape> = {
       features: 'Funktionen',
       infrastructure: 'Infrastruktur',
       challenges: 'Zentrale Herausforderungen',
-      developer: 'Über die Entwickler:in'
+      developer: 'Über mich'
     },
     layout: {
       productLabel: 'PV-Plattform',
-      sidebarIntro: 'Erkunden Sie Überblick, Architektur und Einblicke in die Entwicklung der Plattform.',
+      sidebarIntro: 'Überblick, Architektur und Einblicke in die Entwicklung der Plattform.',
       themeLabel: 'Darstellung',
       languageLabel: 'Sprache',
       mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
@@ -226,14 +190,14 @@ export const translations: Record<Language, TranslationShape> = {
     },
     hero: {
       eyebrow: 'Überblick',
-      title: 'Photovoltaik-Überwachung und Analytics',
+      title: 'HomeWatts – Photovoltaik-Überwachung und Analytics',
       description:
-        'Betriebsintelligenz für verteilte Solaranlagen – Kennzahlen sichtbar machen, Anlagenzustand bewerten und Gegenmaßnahmen aus einer Oberfläche anstoßen.',
+        'Intelligente Energieanalyse für dein Zuhause – überwache, verstehe und optimiere deine Photovoltaikanlage mit Batteriespeicher.',
       body:
-        'Nutzen Sie eine Observability-Schicht, die speziell für Photovoltaik entwickelt wurde. Erkennen Sie leistungsschwache Strings, analysieren Sie Wechselrichterfehler in Sekunden und vergleichen Sie Erträge mit Einstrahlungsprognosen – ganz ohne Tabellenchaos.',
+        'Die speziell für Photovoltaik entwickelte Plattform macht Ihre Energie transparent: Überwachen Sie Leistung und Effizienz in Echtzeit, erkennen Sie Störungen sofort und entdecken Sie neue Potenziale für Optimierung und Investitionen.',
       ctas: {
         primary: 'Demo starten',
-        secondary: 'Architektur entdecken'
+        secondary: 'Auf Github ansehen'
       },
       metrics: [
         { label: 'Überwachte Arrays', value: '12.500+' },
@@ -246,88 +210,53 @@ export const translations: Record<Language, TranslationShape> = {
     features: {
       eyebrow: 'Funktionen',
       title: 'Plattform-Funktionen',
-      description: 'Alles, was Einsatzteams brauchen, um Solarperformance zu erfassen, zu analysieren und darauf zu reagieren.',
+      description: 'Erfassen. Analysieren. Handeln. Alles, was PV-Besitzer brauchen, um das Maximum aus ihrer Solaranlage herauszuholen.',
       cards: [
         {
           title: 'Echtzeit-Visualisierung',
           description:
-            'Streaming-Dashboards zeigen Modulwerte im Sekundentakt, damit Operatoren eingreifen, bevor der Ertrag sinkt.',
-          image: '/images/feature-visualization.svg',
+            'Dashboards visualisieren Modulwerte in Echtzeit, sodass Sie Ihren Stromverbrauch intelligent anpassen können.',
+          image: '/images/current-state.png',
           alt: 'Liniendiagramm mit Leistungsverlauf der Solarmodule.'
-        },
-        {
-          title: 'Anomalie-Erkennung',
-          description:
-            'ML-gestützte Basislinien markieren Wechselrichterfehler, Verschattung oder Spannungseinbrüche mit adaptiven Schwellen pro Array.',
-          image: '/images/feature-anomaly.svg',
-          alt: 'Heatmap-Ansicht mit hervorgehobener Anomalie in einem Solarstring.'
         },
         {
           title: 'Remote Monitoring',
           description:
-            'Gesicherte Fernzugriffe starten Diagnosen, Kalibrierungen und Firmware-Checks – ganz ohne Vor-Ort-Einsatz.',
-          image: '/images/feature-remote.svg',
-          alt: 'Ingenieur:in, die aus der Ferne eine Diagnose auslöst.'
+            'Bleiben Sie auch unterwegs informiert und erkennen Sie Störungen in Echtzeit.',
+          image: '/images/feature-anomaly.svg',
+          alt: 'Heatmap-Ansicht mit hervorgehobener Anomalie in einem Solarstring.'
         },
         {
-          title: 'Trend-Analysen',
+          title: 'Analyse und Optimierung',
           description:
-            'Rollierende 30-Tage-Regressionsmodelle decken Performance-Drift und Moduldegradation für die Wartungsplanung auf.',
-          image: '/images/feature-trend.svg',
-          alt: 'Dashboard mit Vergleich der Produktions-Trends.'
-        }
+            'Unsere Analyseplattform liefert präzise Handlungsempfehlungen, damit Sie Investitionen gezielt und wirkungsvoll planen können.',
+          image: '/images/feature-visualization.svg',
+          alt: 'Ingenieur:in, die aus der Ferne eine Diagnose auslöst.'
+        },
       ]
     },
     infrastructure: {
       eyebrow: 'Infrastruktur',
       title: 'Infrastruktur',
       description:
-        'Eine cloud-native Steuerzentrale nimmt Telemetrie auf, orchestriert Analysen und liefert Insights weltweit aus.',
+        'Eine cloud-native Steuerzentrale erfasst Telemetriedaten, orchestriert Analysen und liefert Erkenntnisse in Echtzeit aus.',
       paragraphs: [
-        'Robuste Edge-Collector übertragen detaillierte Telemetrie in regionale Ingestion-Cluster. Ein Kafka-Rückgrat repliziert Events nach BigQuery für Historienanalysen, während Flink-Jobs die Live-Dashboards speisen. Rollenbasierte APIs stellen Aktionen sicher für Web- und Mobile-Clients bereit.',
-        'Automatisierte Deployments auf Google Cloud sorgen für konsistente Releases. GitOps-Pipelines prüfen Architekturdiagramme, Schema-Änderungen und Golden Dashboards vor dem Gang in die Produktion.'
+        'Benutzeranfragen werden von der React-Single-Page-App über HTTPS an die Backend-API gesendet. Das Backend stellt den UI-Status bereit, authentifiziert Benutzer und liest bzw. schreibt Betriebsdaten über PostgreSQL.',
+        'Parallel dazu läuft ein Collector-Worker auf einem eigenen Spring-Profil: Er wird nach einem Zeitplan aktiviert, authentifiziert sich beim SEMS-Portal, ruft aktuelle Leistungs- und Anlagendaten ab und speichert sie im selben Backendschema.',
+        'Diese Aktualisierungen machen die neuesten Telemetriedaten und den Synchronisationsstatus unmittelbar für nachfolgende Frontend-Aufrufe verfügbar.'
       ],
       githubLabel: 'Auf GitHub ansehen',
       imageAlt: 'Diagramm mit Collectors, Streaming-Pipeline, Analytics-Layer und Operator-Console.',
-      imageCaption: 'Telemetrie fließt durch resilient aufgebaute Pipelines in eine skalierbare Analytics-Schicht.'
-    },
-    challenges: {
-      eyebrow: 'Herausforderungen',
-      title: 'Zentrale Herausforderungen',
-      description:
-        'Erkenntnisse aus dem Skalieren einer datenintensiven Solar-Monitoring-Plattform.',
-      items: [
-        {
-          title: 'Heterogene Telemetrie vereinheitlichen',
-          description:
-            'Hersteller liefern Kennzahlen per Modbus, proprietären TCP-Payloads oder REST-Bridges. Wir normalisieren alles in ein gemeinsames Zeitreihen-Schema und gleichen Lücken via Kalman-Glättung aus, damit Dashboards konsistent bleiben.',
-          detail:
-            'Edge-Collector senden Rohdaten in ein Kafka-Topic; ein WASM-Parser überführt sie protokollübergreifend in strukturiertes JSON.'
-        },
-        {
-          title: 'Geodaten-Abfragen skalieren',
-          description:
-            'Operatoren filtern nach Einstrahlung, Asset-Health und Standort in Millisekunden – selbst bei tausenden Dächern. Wir kacheln Daten mit H3-Indizes, sharden Anfragen pro Region und cachen Karten-Overlays in Cloud Storage.',
-          detail:
-            'Vorkomputierte Tiles halten die Interaktionslatenz für 95 % der Requests unter 250 ms.'
-        },
-        {
-          title: 'Fehlalarme eindämmen',
-          description:
-            'Anomalie-Wellen können Teams überfordern. Wir kalibrieren Detektoren mit saisonalen Basislinien und setzen Quorum-Logik vor Benachrichtigungen ein – so reduzieren wir Rauschen um 63 %, ohne echte Ausfälle zu verbergen.',
-          detail:
-            'Alarm-Regeln verknüpfen statistische Konfidenz und Zeitkorridore, um kritische Ausfälle zu priorisieren.'
-        }
-      ]
+      imageCaption: 'Architekturübersicht / Systemübersicht'
     },
     developer: {
-      eyebrow: 'Team',
-      title: 'Über die Entwickler:in',
+      eyebrow: 'Person',
+      title: 'Über mich',
       description:
-        'Erstellt von einer Systems Engineer mit Fokus auf verlässliche Erneuerbare und intuitive Operator-Tools.',
+        'Leidenschaft für datengetriebene Prozessautomatisierung',
       paragraphs: [
-        'Hallo, ich bin Alex – eine Spezialistin für Renewables, die elektrotechnisches Know-how mit cloud-nativen Daten-Stacks verbindet. Ich gestalte Leitstände, die Außenteams Sicherheit geben, Operatoren informieren und Nachhaltigkeitsziele unterstützen.',
-        'Aktuelle Projekte reichen von Wechselrichter-Analytik über DER-Forecasting bis hin zu XR-Trainings für Dach-Teams. Ich übersetze chaotische Telemetrie in klare, menschzentrierte Experiences.'
+        'Hallo, ich bin Markus – ein Softwareentwickler mit einem besonderen Interesse an der Digitalisierung geschäftlicher Prozesse. Mich begeistert, wie sich komplexe Geschäftslogik in klar strukturierte, wartbare und zugleich nutzerorientierte Software übersetzen lässt.',
+        'Die Verbindung von Datenstruktur, Geschäftslogik und Nutzererlebnis betrachte ich als Schlüssel zu nachhaltiger digitaler Transformation und möchte diesen Fortschritt aktiv mitgestalten. Dabei verbinde ich meine analytischen Fähigkeiten aus dem Studium der Klimaphysik mit dem systemischen Denken eines Informationstechnologen.'
       ],
       links: [
         { href: 'https://github.com/example', label: 'GitHub', aria: 'GitHub-Profil der Entwickler:in öffnen' },
