@@ -20,7 +20,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Inter Variable"', 'system-ui', 'sans-serif']
+        sans: ['Lato', 'system-ui', 'sans-serif']
       },
       boxShadow: {
         card: '0 16px 32px -16px rgba(15, 23, 42, 0.25)'
