@@ -13,7 +13,7 @@ export default function Sidebar() {
       <div className="space-y-8">
         <div className="space-y-2">
           <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">{t.layout.productLabel}</span>
-          <h1 className="text-2xl font-bold leading-tight">{t.hero.title}</h1>
+          <h1 className="text-2xl font-bold leading-tight">{t.layout.sidebarTitle}</h1>
           <p className="text-sm text-muted-foreground">{t.layout.sidebarIntro}</p>
         </div>
 

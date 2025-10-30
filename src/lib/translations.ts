@@ -24,6 +24,7 @@ interface SectionCopy {
 interface LayoutCopy {
   productLabel: string;
   sidebarIntro: string;
+  sidebarTitle: string;
   themeLabel: string;
   languageLabel: string;
   mobileSubtitle: string;
@@ -69,6 +70,7 @@ export const translations: Record<Language, TranslationShape> = {
     layout: {
       productLabel: 'PV Platform',
       sidebarIntro: "Overview, architecture, and insights into the platform's development.",
+      sidebarTitle: 'HomeWatts\nPhotovoltaic Monitoring and Analytics',
       themeLabel: 'Theme',
       languageLabel: 'Language',
       mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
@@ -159,6 +161,7 @@ export const translations: Record<Language, TranslationShape> = {
     layout: {
       productLabel: 'PV-Plattform',
       sidebarIntro: 'Überblick, Architektur und Einblicke in die Entwicklung der Plattform.',
+      sidebarTitle: 'HomeWatts\nPhotovoltaik-Überwachung und Analytics',
       themeLabel: 'Darstellung',
       languageLabel: 'Sprache',
       mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
