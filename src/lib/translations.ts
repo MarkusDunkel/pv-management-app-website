@@ -143,9 +143,9 @@ export const translations: Record<Language, TranslationShape> = {
         "I see the interplay between data structure, business logic, and user experience as the key to sustainable digital transformation, and I want to help shape that progress. I combine analytical skills from studying climate physics with the systems thinking of an IT specialist."
       ],
       links: [
-        { href: 'https://github.com/example', label: 'GitHub', aria: "Open the developer's GitHub profile" },
-        { href: 'https://www.linkedin.com/in/example', label: 'LinkedIn', aria: "Open the developer's LinkedIn profile" },
-        { href: 'mailto:developer@example.com', label: 'Email', aria: 'Send an email to the developer' }
+        { href: 'https://github.com/MarkusDunkel', label: 'GitHub', aria: "Open Markus Dunkel's GitHub profile" },
+        { href: 'https://linkedin.com/in/mdunkel/', label: 'LinkedIn', aria: "Open Markus Dunkel's LinkedIn profile" },
+        { href: 'mailto:me@markusdunkel.at', label: 'Email', aria: 'Send an email to Markus Dunkel' }
       ],
       avatarAlt: 'Markus Dunkel'
     }
@@ -235,9 +235,9 @@ export const translations: Record<Language, TranslationShape> = {
         'Die Verbindung von Datenstruktur, Geschäftslogik und Nutzererlebnis betrachte ich als Schlüssel zu nachhaltiger digitaler Transformation und möchte diesen Fortschritt aktiv mitgestalten. Dabei verbinde ich meine analytischen Fähigkeiten aus dem Studium der Klimaphysik mit dem systemischen Denken eines Informationstechnologen.'
       ],
       links: [
-        { href: 'https://github.com/example', label: 'GitHub', aria: 'GitHub-Profil der Entwickler:in öffnen' },
-        { href: 'https://www.linkedin.com/in/example', label: 'LinkedIn', aria: 'LinkedIn-Profil der Entwickler:in öffnen' },
-        { href: 'mailto:developer@example.com', label: 'E-Mail', aria: 'E-Mail an die Entwickler:in senden' }
+        { href: 'https://github.com/MarkusDunkel', label: 'GitHub', aria: 'GitHub-Profil von Markus Dunkel öffnen' },
+        { href: 'https://linkedin.com/in/mdunkel/', label: 'LinkedIn', aria: 'LinkedIn-Profil von Markus Dunkel öffnen' },
+        { href: 'mailto:me@markusdunkel.at', label: 'E-Mail', aria: 'E-Mail an Markus Dunkel' }
       ],
       avatarAlt: 'Markus Dunkel'
     }
