@@ -135,7 +135,7 @@ export const translations: Record<Language, TranslationShape> = {
       imageCaption: 'Architecture overview / system overview'
     },
     developer: {
-      eyebrow: 'Profile',
+      eyebrow: 'Person',
       title: 'About Me',
       description: 'Passion for data-driven process automation.',
       paragraphs: [
@@ -147,7 +147,7 @@ export const translations: Record<Language, TranslationShape> = {
         { href: 'https://www.linkedin.com/in/example', label: 'LinkedIn', aria: "Open the developer's LinkedIn profile" },
         { href: 'mailto:developer@example.com', label: 'Email', aria: 'Send an email to the developer' }
       ],
-      avatarAlt: 'Illustrated portrait of the developer.'
+      avatarAlt: 'Markus Dunkel'
     }
   },
   de: {
@@ -239,7 +239,7 @@ export const translations: Record<Language, TranslationShape> = {
         { href: 'https://www.linkedin.com/in/example', label: 'LinkedIn', aria: 'LinkedIn-Profil der Entwickler:in öffnen' },
         { href: 'mailto:developer@example.com', label: 'E-Mail', aria: 'E-Mail an die Entwickler:in senden' }
       ],
-      avatarAlt: 'Illustrierte Darstellung der Entwickler:in.'
+      avatarAlt: 'Markus Dunkel'
     }
   }
 };
