@@ -28,6 +28,26 @@
   --ring: 22 90% 60%;
 }
 
+/* style injections for mermaid */
+.edgeLabel {
+  color: hsl(var(--foreground)) !important;
+}
+
+.edgeLabel p {
+  background-color: hsl(var(--background) / 0.7) !important;
+}
+
+.edgePaths path {
+  stroke: hsl(var(--muted-foreground)) !important;
+  stroke-width: 2px !important;
+} 
+
+marker path {
+  fill: hsl(var(--muted-foreground)) !important;
+  stroke: hsl(var(--muted-foreground)) !important;
+}
+/* style injections for mermaid */
+
 body {
   @apply bg-background text-foreground min-h-screen font-sans antialiased;
 }

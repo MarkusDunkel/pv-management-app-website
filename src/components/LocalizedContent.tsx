@@ -10,7 +10,7 @@ const chart = `%%{init: { "theme": "base",
   "flowchart": { "curve": "basis", "htmlLabels": true },
   "themeVariables": {
     "primaryColor": "transparent",
-    "lineColor": "#555",
+    "lineColor": "hsl(var(--background))",
     "fontSize": "14px",
     "fontFamily": "Inter, sans-serif",
     "textColor": "hsl(var(--foreground))"}}}%%
@@ -50,13 +50,6 @@ graph TD
 
   %% --- STYLING ALL ARROWS ---
   linkStyle default stroke-width:1.5px,fill:none
-
-  %% --- INDIVIDUAL LINK LABEL STYLES ---
-  linkStyle 0 font-size:13px,font-style:italic,color:textColor
-  linkStyle 1 font-size:13px,font-style:italic
-  linkStyle 2 font-size:13px,font-style:italic
-  linkStyle 3 font-size:13px,font-style:italic
-  linkStyle 4 font-size:13px,font-style:italic
 `;
 
 export default function LocalizedContent() {
