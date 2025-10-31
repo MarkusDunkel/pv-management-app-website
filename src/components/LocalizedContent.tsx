@@ -58,7 +58,7 @@ export default function LocalizedContent() {
             <p className="text-lg text-muted-foreground">{t.hero.body}</p>
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="http://104.155.37.67/dashboard"
+                href="https://app.homewatts.xyz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: 'default', size: 'lg' }), 'shadow-xl shadow-accent/30')}
