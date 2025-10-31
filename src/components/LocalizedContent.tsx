@@ -13,33 +13,50 @@ const chart = `%%{init: { "theme": "base",
     "lineColor": "#555",
     "fontSize": "14px",
     "fontFamily": "Inter, sans-serif",
-    "textColor": "hsl(var(--foreground))"}}%%
+    "textColor": "hsl(var(--foreground))"}}}%%
 graph TD
-  FE["<div style='text-align:center;font-size:17px;padding-bottom:5px;color:hsl(var(--foreground))'><b>Frontend</b></div>
-  <div style='text-align:left;color:hsl(var(--foreground))'>- React<br/>- TypeScript<br/>- Vite<br/>- Tailwind</div>"]
 
-  FE <-->|HTTPS/REST| BE["<div style='text-align:center;font-size:17px;padding-bottom:5px;color:hsl(var(--foreground))'><b>Backend</b></div>
-  <div style='text-align:left;color:hsl(var(--foreground))'>- Spring<br/>- Spring Web<br/>- Spring Security<br/>- JPA + Flyway</div>"]
+  B["<div style='text-align:center;font-size:17px;color:hsl(var(--foreground))'><b>Browser</b></div>"]
 
-  BE <-->|JPA| DB
-  EX["<div style='text-align:center;font-size:14px;color:hsl(var(--foreground))'><b>External SEMS API</b></div>"] -->|WebClient| CTRL
-  CTRL["<div style='text-align:center;font-size:17px;padding-bottom:5px;color:hsl(var(--foreground))'><b>Controller</b></div>
-  <div style='text-align:left;color:hsl(var(--foreground))'>Spring Boot non-web <br/> with scheduled jobs</div>"] --> DB[("<div style='text-align:center;font-size:14px;color:hsl(var(--foreground))'><b>PostgreSQL</b></div>")]
+  RP["<div style='text-align:center;font-size:17px;color:hsl(var(--foreground))'><b>Reverse Proxy</b></div>
+  <div style='text-align:left;color:hsl(var(--foreground))'>Traefik<br/>TLS termination<br/>Routing</div>"]
+
+  FE["<div style='text-align:center;font-size:17px;color:hsl(var(--foreground));height:0px;margin-bottom:-12px'><b>Frontend</b></div>
+  <div style='text-align:left;color:hsl(var(--foreground))'>React · TypeScript · Vite · Tailwind ·<br/>nginx (static files)</div>"]
+
+  BE["<div style='text-align:center;font-size:17px;height:0px;color:hsl(var(--foreground));margin-bottom:-12px'><b>Backend</b></div>
+  <div style='text-align:left;color:hsl(var(--foreground))'>Spring · Spring Web · Spring Security<br/>JPA + Flyway · JWT</div>"]
+
+  CTRL["<div style='text-align:center;font-size:17px;color:hsl(var(--foreground))'><b>Controller</b></div>
+  <div style='text-align:left;color:hsl(var(--foreground))'>Spring Boot non-web<br/>scheduled jobs</div>"]
+
+  EX["<div style='text-align:center;font-size:14px;color:hsl(var(--foreground))'><b>External SEMS API</b></div>"]
+
+  DB[("<div style='text-align:center;font-size:14px;color:hsl(var(--foreground))'><b>PostgreSQL</b></div>")]
+
+  %% --- FLOWS ---
+  B <-->|HTTPS| RP
+  RP -->|"/" static assets| FE
+  RP -->|"/api/**" REST| BE
+  BE -->|JPA| DB
+  EX -->|WebClient| CTRL
+  CTRL --> DB
 
   %% --- CLASS DEFINITIONS ---
   classDef rounded fill:transparent,stroke:#555,stroke-width:1px,rx:5,ry:5
-  class FE,BE,CTRL,EX rounded
+  class FE,BE,CTRL,EX,RP,B rounded
   classDef db fill:transparent,stroke:#555,stroke-width:1px
   class DB db
-  
+
   %% --- STYLING ALL ARROWS ---
   linkStyle default stroke-width:1.5px,fill:none
 
-%% --- INDIVIDUAL LINK LABEL STYLES ---
-  linkStyle 0 font-size:13px,font-style:italic
+  %% --- INDIVIDUAL LINK LABEL STYLES ---
+  linkStyle 0 font-size:13px,font-style:italic,color:textColor
   linkStyle 1 font-size:13px,font-style:italic
   linkStyle 2 font-size:13px,font-style:italic
   linkStyle 3 font-size:13px,font-style:italic
+  linkStyle 4 font-size:13px,font-style:italic
 `;
 
 export default function LocalizedContent() {
