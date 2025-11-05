@@ -41,6 +41,15 @@ export interface TranslationShape {
   hero: SectionCopy & {
     ctas: { primary: string; secondary: string };
     body: string;
+    demoModal: {
+      title: string;
+      description: string;
+      descriptionTwo: string;
+      inputLabel: string;
+      inputPlaceholder: string;
+      confirm: string;
+      cancel: string;
+    };
   };
   features: SectionCopy & {
     cards: FeatureCard[];
@@ -90,6 +99,17 @@ export const translations: Record<Language, TranslationShape> = {
       ctas: {
         primary: 'Try the Demo',
         secondary: 'View on GitHub'
+      },
+      demoModal: {
+        title: 'Enter your demo access key',
+        description:
+          'Request demo key and paste it below to open the live application.',
+            descriptionTwo:
+          'Was a link to this website shared with you? Then you will often find the demo key embedded in it!',
+        inputLabel: 'Demo access key',
+        inputPlaceholder: 'e.g. HW-DEMO-1234',
+        confirm: 'Continue to demo',
+        cancel: 'Cancel'
       },
     },
     features: {
@@ -179,6 +199,17 @@ export const translations: Record<Language, TranslationShape> = {
       ctas: {
         primary: 'Demo starten',
         secondary: 'Auf Github ansehen'
+      },
+      demoModal: {
+        title: 'Demo-Zugangsschlüssel eingeben',
+        description:
+          'Fordern Sie einen Demo-Schlüssel an und fügen Sie ihn hier ein, um die Anwendung zu öffnen.',
+        descriptionTwo:
+          'Wurde ein Link zu dieser Webseite mit Ihnen geteilt? Dann finden sie den Demo-Schlüssel häufig darin eingebunden!',
+        inputLabel: 'Demo-Zugangsschlüssel',
+        inputPlaceholder: 'z. B. HW-DEMO-1234',
+        confirm: 'Zur Demo wechseln',
+        cancel: 'Abbrechen'
       },
     },
     features: {
