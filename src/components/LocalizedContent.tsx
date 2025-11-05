@@ -77,20 +77,27 @@ export default function LocalizedContent() {
     const params = new URLSearchParams(window.location.search);
     const key = params.get('demo-access-key');
 
-    const nextParams = new URLSearchParams();
-    if (key) {
-      nextParams.set('demo-access-key', key);
-    }
-
-    const nextSearch = nextParams.toString();
-    const formattedSearch = nextSearch ? `?${nextSearch}` : '';
-    if (window.location.search !== formattedSearch) {
-      const nextUrl = `${window.location.pathname}${formattedSearch}${window.location.hash}`;
-      window.history.replaceState(null, '', nextUrl);
-    }
-
     setDemoAccessKey(key);
   }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const params = new URLSearchParams(window.location.search);
+    const currentParam = params.get('demo-access-key');
+
+    if (demoAccessKey) {
+      if (currentParam === demoAccessKey) return;
+      params.set('demo-access-key', demoAccessKey);
+    } else {
+      if (!currentParam) return;
+      params.delete('demo-access-key');
+    }
+
+    const nextSearch = params.toString();
+    const nextUrl = `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ''}${window.location.hash}`;
+    window.history.replaceState(null, '', nextUrl);
+  }, [demoAccessKey]);
 
   const handleOpenDemo = (key: string | null) => {
     const targetUrl = buildDemoLink(baseDemoUrl, key);
