@@ -78,6 +78,18 @@ export default function LocalizedContent() {
     const key = params.get('demo-access-key');
 
     setDemoAccessKey(key);
+
+    const sanitizedParams = new URLSearchParams();
+    if (key) {
+      sanitizedParams.set('demo-access-key', key);
+    }
+
+    const sanitizedSearch = sanitizedParams.toString();
+    const formattedSearch = sanitizedSearch ? `?${sanitizedSearch}` : '';
+    if (window.location.search !== formattedSearch) {
+      const nextUrl = `${window.location.pathname}${formattedSearch}${window.location.hash}`;
+      window.history.replaceState(null, '', nextUrl);
+    }
   }, []);
 
   useEffect(() => {
