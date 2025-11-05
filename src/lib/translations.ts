@@ -126,9 +126,7 @@ export const translations: Record<Language, TranslationShape> = {
       description:
         'A cloud-native control centre captures telemetry, orchestrates analytics, and delivers insights in real time.',
       paragraphs: [
-        'User requests are sent from the React single-page app to the backend API over HTTPS. The backend supplies UI state, authenticates users, and reads or writes operational data via PostgreSQL.',
-        'In parallel, a collector worker runs on its own Spring profile: it is triggered on a schedule, authenticates with the SEMS portal, fetches current performance and asset data, and stores it in the same backend schema.',
-        'These updates make the latest telemetry and synchronisation status immediately available for subsequent frontend calls.'
+        'The browser communicates with the application exclusively over HTTPS, with Traefik acting as the public entrypoint that handles TLS termination and routing. Traefik serves the frontend’s static files, which are hosted by an nginx container that delivers the built React SPA. All API calls from the SPA use the same origin (/api/**) and are internally proxied by nginx to the Spring Boot backend running on port 8080. The backend exposes the REST API, performs authentication, and persists data in PostgreSQL. A separate worker service runs scheduled jobs, fetches data from the external SEMS API, and writes results to the same database.'
       ],
       githubLabel: 'View on GitHub',
       imageAlt: 'Diagram showing collectors, streaming pipeline, analytics layer, and operator console.',
@@ -217,9 +215,7 @@ export const translations: Record<Language, TranslationShape> = {
       description:
         'Eine cloud-native Steuerzentrale erfasst Telemetriedaten, orchestriert Analysen und liefert Erkenntnisse in Echtzeit aus.',
       paragraphs: [
-        'Benutzeranfragen werden von der React-Single-Page-App über HTTPS an die Backend-API gesendet. Das Backend stellt den UI-Status bereit, authentifiziert Benutzer und liest bzw. schreibt Betriebsdaten über PostgreSQL.',
-        'Parallel dazu läuft ein Collector-Worker auf einem eigenen Spring-Profil: Er wird nach einem Zeitplan aktiviert, authentifiziert sich beim SEMS-Portal, ruft aktuelle Leistungs- und Anlagendaten ab und speichert sie im selben Backendschema.',
-        'Diese Aktualisierungen machen die neuesten Telemetriedaten und den Synchronisationsstatus unmittelbar für nachfolgende Frontend-Aufrufe verfügbar.'
+        'Der Browser kommuniziert ausschließlich über HTTPS mit der Anwendung, wobei Traefik als öffentlicher Einstiegspunkt dient und sowohl die TLS-Beendigung als auch das Routing übernimmt. Traefik liefert die statischen Dateien des Frontends aus, die in einem nginx-Container liegen, der die gebaute React-SPA bereitstellt. Alle API-Aufrufe der SPA verwenden denselben Origin (/api/**) und werden intern von nginx an das Spring-Boot-Backend auf Port 8080 weitergeleitet. Das Backend stellt die REST-API bereit, führt die Authentifizierung durch und speichert Daten in PostgreSQL. Ein separater Worker-Dienst führt geplante Jobs aus, ruft Daten von der externen SEMS-API ab und schreibt die Ergebnisse in dieselbe Datenbank.'
       ],
       githubLabel: 'Auf GitHub ansehen',
       imageAlt: 'Diagramm mit Collectors, Streaming-Pipeline, Analytics-Layer und Operator-Console.',
