@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
 
 import { SectionHeading } from '@/components/SectionHeading';
+import { DemoKeyMissingModal } from '@/components/DemoKeyMissingModal';
 import { buttonVariants } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslations';
 import { buildDemoLink } from '@/lib/url';
@@ -79,6 +80,10 @@ export default function LocalizedContent() {
 
     setDemoAccessInput('');
     setIsModalOpen(true);
+  };
+
+  const handleModalInputChange = (value: string) => {
+    setDemoAccessInput(value);
   };
 
   const handleConfirmAccessKey = () => {
@@ -233,57 +238,14 @@ export default function LocalizedContent() {
           </div>
         </SectionHeading>
       </div>
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="demo-access-modal-title"
-          onClick={handleModalClose}
-        >
-          <div
-            className="w-full max-w-sm rounded-lg border border-border bg-background p-6 font-lato shadow-xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <form className="space-y-4" onSubmit={handleModalSubmit}>
-              <div className="space-y-2">
-                <h2 id="demo-access-modal-title" className="text-xl font-semibold">
-                  {t.hero.demoModal.title}
-                </h2>
-                <p className="text-sm text-muted-foreground">{t.hero.demoModal.description}</p>
-                 <p className="text-sm font-bold">{t.hero.demoModal.descriptionTwo}</p>
-              </div>
-              <label className="flex flex-col gap-2 text-sm font-medium text-foreground">
-                {t.hero.demoModal.inputLabel}
-                <input
-                  type="text"
-                  value={demoAccessInput}
-                  onChange={(event) => setDemoAccessInput(event.target.value)}
-                  placeholder={t.hero.demoModal.inputPlaceholder}
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  autoFocus
-                />
-              </label>
-              <div className="flex justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={handleModalClose}
-                  className={cn(buttonVariants({ variant: 'ghost' }), 'px-4')}
-                >
-                  {t.hero.demoModal.cancel}
-                </button>
-                <button
-                  type="submit"
-                  className={cn(buttonVariants({ variant: 'default' }), 'px-4')}
-                  disabled={!demoAccessInput.trim()}
-                >
-                  {t.hero.demoModal.confirm}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <DemoKeyMissingModal
+        open={isModalOpen}
+        copy={t.hero.demoModal}
+        inputValue={demoAccessInput}
+        onClose={handleModalClose}
+        onSubmit={handleModalSubmit}
+        onInputChange={handleModalInputChange}
+      />
     </>
   );
 }
