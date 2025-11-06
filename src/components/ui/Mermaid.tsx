@@ -8,7 +8,7 @@ type Props = {
   config?: MermaidConfig;       // optional per-instance config overrides
 };
 
-export default function Mermaid({ chart, className, config }: Props) {
+export const Mermaid=({ chart, className, config }: Props) =>{
   const id = useId().replace(/:/g, "_"); // ensure a valid DOM id
   const ref = useRef<HTMLDivElement>(null);
 
