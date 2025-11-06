@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
 
 import { SectionHeading } from '@/components/SectionHeading';
@@ -8,7 +6,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { useTranslations } from '@/hooks/useTranslations';
 import { buildDemoLink } from '@/lib/url';
 import { cn } from '@/lib/utils';
-import {Mermaid} from './ui/Mermaid';
+import { Mermaid } from './ui/Mermaid';
 import { chart } from './architecturalDiagram';
 
 export default function LocalizedContent() {
@@ -19,7 +17,7 @@ export default function LocalizedContent() {
 
   const baseDemoUrl = useMemo(
     () => (import.meta.env.DEV ? 'https://localhost:5173' : 'https://app.homewatts.xyz'),
-    []
+    [],
   );
 
   const handleModalClose = useCallback(() => {
@@ -131,7 +129,7 @@ export default function LocalizedContent() {
                   onClick={handleDemoClick}
                   className={cn(
                     buttonVariants({ variant: 'default', size: 'lg' }),
-                    'shadow-xl shadow-accent/30'
+                    'shadow-xl shadow-accent/30',
                   )}
                 >
                   {t.hero.ctas.primary}
@@ -140,11 +138,18 @@ export default function LocalizedContent() {
                   href="https://github.com/MarkusDunkel/pv-management-app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={cn(buttonVariants({ variant: 'outline', size: 'lg' }), 'border-dashed')}
+                  className={cn(
+                    buttonVariants({ variant: 'outline', size: 'lg' }),
+                    'border-dashed',
+                  )}
                 >
                   {t.hero.ctas.secondary}
                 </a>
-                {demoAccessKey && <div className="text-sm text-muted-foreground">{'demo-access-key: '+ demoAccessKey}</div>}
+                {demoAccessKey && (
+                  <div className="text-sm text-muted-foreground">
+                    {'demo-access-key: ' + demoAccessKey}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -162,7 +167,12 @@ export default function LocalizedContent() {
                 key={feature.title}
                 className="flex flex-col gap-4 rounded-xl border border-border bg-background/80 p-6 shadow-card backdrop-blur"
               >
-                <img src={feature.image} alt={feature.alt} className="h-32 w-full object-cover" loading="lazy" />
+                <img
+                  src={feature.image}
+                  alt={feature.alt}
+                  className="h-32 w-full object-cover"
+                  loading="lazy"
+                />
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
@@ -227,7 +237,7 @@ export default function LocalizedContent() {
                     aria-label={link.aria}
                     className={cn(
                       buttonVariants({ variant: 'ghost' }),
-                      'border border-border px-4 py-2 text-sm font-medium hover:border-accent'
+                      'border border-border px-4 py-2 text-sm font-medium hover:border-accent',
                     )}
                   >
                     {link.label}

@@ -1,5 +1,3 @@
-'use client';
-
 import MobileTopbar from '@/components/navigation/MobileTopbar';
 import Sidebar from '@/components/navigation/Sidebar';
 import LocalizedContent from '@/components/LocalizedContent';

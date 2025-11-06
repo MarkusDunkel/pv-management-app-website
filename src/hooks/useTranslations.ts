@@ -1,5 +1,3 @@
-'use client';
-
 import { useMemo } from 'react';
 
 import { translations } from '@/lib/translations';

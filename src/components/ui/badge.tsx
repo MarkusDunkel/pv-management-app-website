@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
@@ -11,13 +9,13 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default: 'bg-accent text-accent-foreground',
-        muted: 'bg-muted text-muted-foreground'
-      }
+        muted: 'bg-muted text-muted-foreground',
+      },
     },
     defaultVariants: {
-      variant: 'default'
-    }
-  }
+      variant: 'default',
+    },
+  },
 );
 
 export interface BadgeProps

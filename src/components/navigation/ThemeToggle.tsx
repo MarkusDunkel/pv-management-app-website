@@ -1,5 +1,3 @@
-'use client';
-
 import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -62,10 +60,14 @@ export default function ThemeToggle({ className }: { className?: string }) {
       aria-label={t.layout.themeToggleAria}
       className={cn(
         'flex h-10 w-10 items-center justify-center rounded-full border border-border bg-muted text-foreground transition-colors hover:bg-muted/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-        className
+        className,
       )}
     >
-      {theme === 'dark' ? <Moon className="h-5 w-5" aria-hidden="true" /> : <Sun className="h-5 w-5" aria-hidden="true" />}
+      {theme === 'dark' ? (
+        <Moon className="h-5 w-5" aria-hidden="true" />
+      ) : (
+        <Sun className="h-5 w-5" aria-hidden="true" />
+      )}
     </button>
   );
 }

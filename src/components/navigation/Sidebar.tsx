@@ -1,5 +1,3 @@
-'use client';
-
 import LanguageToggle from '@/components/navigation/LanguageToggle';
 import ThemeToggle from '@/components/navigation/ThemeToggle';
 import { navItems } from '@/lib/navigation';
@@ -12,7 +10,9 @@ export default function Sidebar() {
     <aside className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-72 lg:flex-col lg:justify-between lg:border-r lg:border-border lg:bg-background/80 lg:px-8 lg:py-12 lg:backdrop-blur">
       <div className="space-y-8">
         <div className="space-y-2">
-          <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">{t.layout.productLabel}</span>
+          <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            {t.layout.productLabel}
+          </span>
           <h1 className="text-2xl font-bold leading-tight">{t.layout.sidebarTitle}</h1>
           <p className="text-sm text-muted-foreground">{t.layout.sidebarIntro}</p>
         </div>

@@ -1,11 +1,9 @@
-'use client';
-
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslations } from '@/hooks/useTranslations';
 
 const OPTIONS = [
   { value: 'en' as const, label: 'EN', title: 'English' },
-  { value: 'de' as const, label: 'DE', title: 'Deutsch' }
+  { value: 'de' as const, label: 'DE', title: 'Deutsch' },
 ];
 
 export default function LanguageToggle() {
@@ -26,7 +24,9 @@ export default function LanguageToggle() {
             type="button"
             onClick={() => setLanguage(option.value)}
             className={`rounded-full px-3 py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-              active ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+              active
+                ? 'bg-background text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
             }`}
             aria-pressed={active}
             title={option.title}
