@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
-
 import { SectionHeading } from '@/components/SectionHeading';
 import { DemoKeyMissingModal } from '@/components/DemoKeyMissingModal';
 import { buttonVariants } from '@/components/ui/button';
@@ -8,6 +7,11 @@ import { buildDemoLink } from '@/lib/url';
 import { cn } from '@/lib/utils';
 import { Mermaid } from './ui/Mermaid';
 import { chart } from './architecturalDiagram';
+import 'katex/dist/katex.min.css';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 export default function LocalizedContent() {
   const t = useTranslations();
@@ -162,20 +166,43 @@ export default function LocalizedContent() {
           description={t.features.description}
         >
           <div className="grid gap-6 md:grid-cols-2">
-            {t.features.cards.map((feature) => (
+            {t.features.cards.map((feature, idx) => (
               <article
                 key={feature.title}
-                className="flex flex-col gap-4 rounded-xl border border-border bg-background/80 p-6 shadow-card backdrop-blur"
+                className={`flex flex-col gap-4 rounded-xl border border-border bg-background/80 p-6 shadow-card backdrop-blur
+        ${idx === 2 ? 'md:col-span-2' : ''}
+      `}
               >
                 <img
                   src={feature.image}
                   alt={feature.alt}
-                  className="h-32 w-full object-cover"
+                  className=" h-32 md:h-auto w-full md:max-w-[314px] md:w-[min(100%,_314px)] object-cover rounded-lg shrink"
                   loading="lazy"
                 />
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  <p className="text-sm text-muted-foreground">
+                    <ReactMarkdown
+                      remarkPlugins={[remarkGfm, remarkMath]}
+                      rehypePlugins={[rehypeKatex]}
+                      components={{
+                        table({ node: _node, ...props }) {
+                          return <table className="w-full table-auto" {...props} />;
+                        },
+                        p({ node: _node, ...props }) {
+                          return <p className="mb-2 leading-relaxed" {...props} />;
+                        },
+                        h2({ node: _node, ...props }) {
+                          return <h2 className="mt-6 mb-2 text-xl font-semibold" {...props} />;
+                        },
+                        h3({ node: _node, ...props }) {
+                          return <h2 className="mt-6 mb-2 text-l font-semibold" {...props} />;
+                        },
+                      }}
+                    >
+                      {feature.description}
+                    </ReactMarkdown>
+                  </p>
                 </div>
               </article>
             ))}
@@ -189,7 +216,7 @@ export default function LocalizedContent() {
           description={t.infrastructure.description}
         >
           <div className="grid gap-8 lg:grid-cols-[1fr_0fr] lg:items-center">
-            <Mermaid chart={chart} />
+            <Mermaid className={'mermaid'} chart={chart} />
           </div>
           <div className="space-y-5">
             {t.infrastructure.paragraphs.map((paragraph, idx) => (
