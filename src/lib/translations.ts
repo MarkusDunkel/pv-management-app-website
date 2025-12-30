@@ -79,7 +79,7 @@ export const translations: Record<Language, TranslationShape> = {
     layout: {
       productLabel: 'PV Platform',
       sidebarIntro: "Overview, architecture, and insights into the platform's development.",
-      sidebarTitle: 'Homewatts\nPhotovoltaic Monitoring and Analytics',
+      sidebarTitle: 'HomeWatts\nPhotovoltaic Monitoring and Analytics',
       themeLabel: 'Theme',
       languageLabel: 'Language',
       mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
@@ -91,7 +91,7 @@ export const translations: Record<Language, TranslationShape> = {
     },
     hero: {
       eyebrow: 'Overview',
-      title: 'Homewatts – Photovoltaic Monitoring and Analytics',
+      title: 'HomeWatts – Photovoltaic Monitoring and Analytics',
       description:
         'Smart energy analytics for your home: monitor, understand and optimise your photovoltaic system with battery storage.',
       body: 'This platform, built specifically for photovoltaics, makes your energy data transparent: monitor performance and efficiency in real time, detect faults instantly, and uncover new opportunities for optimisation and investment.',
@@ -132,10 +132,10 @@ export const translations: Record<Language, TranslationShape> = {
         {
           title: 'Panel Size Optimization',
           description: `
-Maximizing the benefits of a photovoltaic (PV) system requires selecting an optimal panel capacity. 
+Maximizing the benefits of a photovoltaic (PV) system requires selecting an optimal panel size. 
 Depending on household consumption patterns, PV production characteristics, and financial 
 parameters—including investment costs, electricity selling prices, and panel purchase costs—it 
-is possible to identify the panel size that maximizes overall energy savings.
+is possible to identify the panel size that maximizes overall savings.
 
 **The objective is to express total saving potential as a function of PV capacity.** 
 The following section describes the energy and cost balances used for this calculation. 
@@ -209,7 +209,7 @@ $$
 
 where
 - $P_{\\text{mean}}(t)$ [kW]: actual average power output over the day and
-- $P_{\\text{lab}}$ [kWp]: nominal panel power under lab conditions,
+- $P_{\\text{lab}}$ [kWp]: nominal panel power under lab conditions.
 `,
           image: '/images/feature-visualization.svg',
           alt: 'Engineer initiating a remote diagnostic.',
@@ -284,7 +284,7 @@ where
     layout: {
       productLabel: 'PV-Plattform',
       sidebarIntro: 'Überblick, Architektur und Einblicke in die Entwicklung der Plattform.',
-      sidebarTitle: 'Homewatts\nPhotovoltaik-Überwachung und Analytics',
+      sidebarTitle: 'HomeWatts\nPhotovoltaik-Überwachung und Analytics',
       themeLabel: 'Darstellung',
       languageLabel: 'Sprache',
       mobileSubtitle: 'Photovoltaik Surveillance & Analytics',
@@ -296,7 +296,7 @@ where
     },
     hero: {
       eyebrow: 'Überblick',
-      title: 'Homewatts – Photovoltaik-Überwachung und Analytics',
+      title: 'HomeWatts – Photovoltaik-Überwachung und Analytics',
       description:
         'Intelligente Energieanalyse für dein Zuhause – überwache, verstehe und optimiere deine Photovoltaikanlage mit Batteriespeicher.',
       body: 'Die speziell für Photovoltaik entwickelte Plattform macht Ihre Energie transparent: Überwachen Sie Leistung und Effizienz in Echtzeit, erkennen Sie Störungen sofort und entdecken Sie neue Potenziale für Optimierung und Investitionen.',
@@ -339,10 +339,10 @@ where
         {
           title: 'Analyse und Optimierung',
           description: `
-Die Maximierung des Nutzens einer Photovoltaikanlage (PV) erfordert die Wahl einer optimalen Modulgröße. 
+Die Maximierung des Nutzens einer Photovoltaikanlage (PV) erfordert die Wahl einer optimalen Anlagengröße. 
 Abhängig von den Verbrauchsmustern des Haushalts, den Produktionscharakteristika der PV-Anlage sowie finanziellen 
 Parametern – einschließlich Investitionskosten, Einspeisevergütungen und Anschaffungskosten der Module – 
-ist es möglich, die Modulgröße zu bestimmen, die die gesamten Energieeinsparungen maximiert.
+ist es möglich, die Anlagengröße zu bestimmen, die die gesamten Kostenersparnisse maximiert.
 
 **Ziel ist es, das Einsparungspotenzial als Funktion der Größe der PV-Anlage auszudrücken.** 
 Der folgende Abschnitt beschreibt die Energie- und Kostenbilanzen, die für diese Berechnung verwendet werden. 
@@ -418,7 +418,7 @@ $$
 
 wobei
 - $P_{\\text{mean}}(t)$ [kW]: die tatsächliche mittlere Leistungsabgabe über den Tag und
-- $P_{\\text{lab}}$ [kWp]: die Nennleistung des Moduls unter Laborbedingungen,`,
+- $P_{\\text{lab}}$ [kWp]: die Nennleistung des Moduls unter Laborbedingungen.`,
           image: '/images/feature-visualization.svg',
           alt: 'Ingenieur:in, die aus der Ferne eine Diagnose auslöst.',
         },
