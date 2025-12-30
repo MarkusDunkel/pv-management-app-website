@@ -198,6 +198,15 @@ export default function LocalizedContent() {
                         h3({ node: _node, ...props }) {
                           return <h2 className="mt-6 mb-2 text-l font-semibold" {...props} />;
                         },
+                        ul({ node: _node, ...props }) {
+                          return <ul className="list-disc pl-6 my-2" {...props} />;
+                        },
+                        ol({ node: _node, ...props }) {
+                          return <ol className="list-decimal pl-6 my-2" {...props} />;
+                        },
+                        li({ node: _node, ...props }) {
+                          return <li className="my-1" {...props} />;
+                        },
                       }}
                     >
                       {feature.description}
